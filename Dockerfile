@@ -36,7 +36,7 @@ VOLUME ['/home/wordpress']
 ADD wordpress/wp_version_writer.py /home/wordpress/scripts/wp_version_writer.py
 ADD wordpress/wp_version_checker.py /home/wordpress/scripts/wp_version_checker.py
 
-RUN apt-get install -y python-dev
+RUN apt-get install -y python
 RUN mkdir /home/wordpress/builtin_wordpress; mkdir /home/wordpress/live_wordpress;
 RUN cd /home/wordpress/builtin_wordpress; wget $(python ../scripts/wp_version_writer.py) -O latest.tar.gz; tar -xvzf latest.tar.gz; rm latest.tar.gz; mv wordpress/* .; rm -R wordpress
 
